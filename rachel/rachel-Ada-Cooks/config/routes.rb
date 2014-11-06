@@ -8,6 +8,13 @@ Rails.application.routes.draw do
   get '/recipes/show',        to: "recipes#show",           as: :recipe
   patch '/recipes/update',    to: "recipes#update"
 
+  get '/ingredients',             to: "ingredients#index",          as: :ingredients
+  post '/ingredients/create',     to: "ingredients#create"
+  get '/ingredients/new',         to: "ingredients#new",            as: :new_ingredients
+  get '/ingredients/edit',        to: "ingredients#edit",           as: :edit_ingredients
+  get '/ingredients/show',        to: "ingredients#show",           as: :ingredient
+  patch '/ingredients/update',    to: "ingredients#update"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
