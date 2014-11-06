@@ -1,26 +1,70 @@
 <h1>Recipes#New</h1>
-<%= form_for @recipe, url: {action: "create"} do |f| %>
+<!-- # <%= form_for @recipe, url: {action: "create"} do |f| %>
+#
+#   <p>
+#     <%= f.label :name %><br>
+#     <%= f.text_field :name %>
+#   </p>
+#
+#   <p>
+#     <%= f.label :description %><br>
+#     <%= f.text_field :description %>
+#   </p>
+#
+#   <p>
+#     <%= f.label :procedure %><br>
+#     <%= f.text_field :procedure %>
+#   </p>
+#
+#   <p>
+#     <%= f.submit %>
+#   </p>
+# <% end %>
+#
+# <%= link_to 'Back to All Recipes', recipes_path %>
+# <br>
+# <%= link_to 'Home', "/" %>
+#
+# {recipe: {name: "Value", description: "Blah"}} -->
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+<!-- # want to add ingredients to the params hash
+# ingredients here will represent the join table
+{recipe_form: {
+  name: "Value",
+  description: "Blah",
+  ingredients: [1,4], # this would be ingredient ids. existing ones that you want to add to recipe.
+  ingredient: {name: "Flour"} # creating ingredients that you also want to add to recipe
+}}
 
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </p>
+# form:
+# form_tag - looser way to make a form where you can add any attributes. writing a form n html
+# form_for - attaches to AR model that makes form specific to that model. some magic like prefilling field. -->
 
-  <p>
-    <%= f.label :procedure %><br>
-    <%= f.text_field :procedure %>
-  </p>
+<!-- put this in the views -->
 
-  <p>
-    <%= f.submit %>
-  </p>
+<h1>New Recipe</h1>
+
+<%= form_tag recipes_path do %>
+
+  <div>
+    <%= label_tag "recipe_form[name]", "Name" %> <br>
+    <%= text_field_tag "recipe_form[name]" %> <br>
+  </div>
+
+  <div>
+    <%= label_tag "recipe_form[description]", "Description" %>
+    <%= text_area_tag "recipe_form[description]" %>
+  </div>
+
+  <div>
+    <!-- want to show chekbozes for ingredients, and if checked add item to array -->
+    <!-- shouldn't do this here. assign to variable in controller -->
+    <% Ingredient.all.each do |ingredient| %>
+      <%= check_box_tag "recipe_form[ingredients][]", ingredient.id %>
+      <%= label_tag "recipe_form[ingredients][]", ingredient.name %> <br>
+    <% end %>
+  </div>
+
+  <%= submit_tag %>
+
 <% end %>
-
-<%= link_to 'Back to All Recipes', recipes_path %>
-<br>
-<%= link_to 'Home', "/" %>

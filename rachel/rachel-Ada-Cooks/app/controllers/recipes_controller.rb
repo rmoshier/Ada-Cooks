@@ -4,10 +4,10 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = RecipeForm.new(params[:recipe_form])
 
-    @recipe.save
-    redirect_to recipe_path(@recipe.id)
+    @recipe.submit
+    redirect_to recipe_path(@recipe.recipe.id)
   end
 
   def new

@@ -13,7 +13,7 @@ class RecipeForm
     # create recipe ingredients for each id in ingredients key
     @recipe = Recipe.create(
     name:        @attributes[:name],
-    descirption: @attributes[:description]
+    description: @attributes[:description]
     )
 
     @attributes[:ingredients].each do |id|
