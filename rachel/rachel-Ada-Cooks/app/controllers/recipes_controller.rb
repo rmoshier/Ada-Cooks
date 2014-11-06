@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
 
     @recipe.save
     redirect_to recipe_path(@recipe.id)
-    # redirect_to @recipe
   end
 
   def new
