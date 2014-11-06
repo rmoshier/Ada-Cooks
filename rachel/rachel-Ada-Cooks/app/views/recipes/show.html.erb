@@ -1,0 +1,20 @@
+<h1>Recipes#Show</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>Procedure:</strong>
+  <%= @recipe.procedure %>
+</p>
+
+<%= link_to 'Back to All Recipes', recipes_path %>
+<br>
+<%= link_to 'Home', "/" %>
