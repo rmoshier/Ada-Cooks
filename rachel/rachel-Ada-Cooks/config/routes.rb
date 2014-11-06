@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  get '/recipes',             to: "recipes#index",          as: :recipes
-  post '/recipes/create',     to: "recipes#create"
-  get '/recipes/new',         to: "recipes#new",            as: :new_recipes
-  get '/recipes/edit',        to: "recipes#edit",           as: :edit_recipes
-  get '/recipes/show',        to: "recipes#show",           as: :recipe
-  patch '/recipes/update',    to: "recipes#update"
+  get '/recipes',                 to: "recipes#index",          as: :recipes
+  post '/recipes',                to: "recipes#create"
+  get '/recipes/new',             to: "recipes#new",            as: :new_recipe
+  get '/recipes/:id/edit',        to: "recipes#edit",           as: :edit_recipe
+  get '/recipes/:id',             to: "recipes#show",           as: :recipe
+  patch '/recipes/:id',           to: "recipes#update"
+  delete '/recipes/:id',          to: "recipes#destroy"
 
-  get '/ingredients',             to: "ingredients#index",          as: :ingredients
-  post '/ingredients/create',     to: "ingredients#create"
-  get '/ingredients/new',         to: "ingredients#new",            as: :new_ingredients
-  get '/ingredients/edit',        to: "ingredients#edit",           as: :edit_ingredients
-  get '/ingredients/show',        to: "ingredients#show",           as: :ingredient
-  patch '/ingredients/update',    to: "ingredients#update"
+  # resources :ingredients
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
