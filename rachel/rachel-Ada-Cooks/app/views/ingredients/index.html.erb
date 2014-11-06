@@ -1,4 +1,20 @@
 <h1>Ingredients#Index</h1>
 <h2>All ingredients</h2>
 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @ingredients.each do |ingredient| %>
+    <tr>
+      <td><%= ingredient.name %></td>
+      <td><%= link_to 'Show', ingredient_path(ingredient) %></td>
+      <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Home', controller: 'home' %>
+<br>
+<%= link_to 'Add an Ingredient', new_ingredient_path %>

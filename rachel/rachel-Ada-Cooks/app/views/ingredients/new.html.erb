@@ -1,0 +1,16 @@
+<h1>Ingredients#New</h1>
+<%= form_for @ingredient, url: {action: "create"} do |f| %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back to All Ingredients', ingredients_path %>
+<br>
+<%= link_to 'Home', "/" %>

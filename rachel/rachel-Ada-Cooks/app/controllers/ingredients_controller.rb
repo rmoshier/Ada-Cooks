@@ -42,7 +42,7 @@ class IngredientsController < ApplicationController
   private
 
   def ingredient_params
-    params.require(:recipe).permit(:unit, :amount)
+    params.require(:ingredient).permit(:name)
   end
-  
+
 end
