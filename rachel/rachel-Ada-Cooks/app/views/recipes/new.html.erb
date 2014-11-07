@@ -57,6 +57,11 @@
   </div>
 
   <div>
+    <%= label_tag "recipe_form[procedure]", "Procedure" %>
+    <%= text_area_tag "recipe_form[procedure]" %>
+  </div>
+
+  <div>
     <!-- want to show chekbozes for ingredients, and if checked add item to array -->
     <!-- shouldn't do this here. assign to variable in controller -->
     <% Ingredient.all.each do |ingredient| %>
