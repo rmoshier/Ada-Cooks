@@ -16,9 +16,14 @@
 </p>
 
 <p>
-  <strong>Ingredients:</strong>
+  <strong>Ingredients:</strong><br>
   <% @recipe.ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
+  <!-- <%= check_box_tag "recipe_form[ingredients][]", ingredient.id %> -->
+  <br>
+  <%= label_tag "recipe_form[ingredients][]", ingredient.name %>
+  <%= destroy_tag "recipe_form[ingredients][]", ingredient.name %>
+  <!-- <%= link_to 'Delete', ingredient_path(ingredient), method: :delete, data: { confirm: 'Are you sure?' } %> -->
+  <!-- <%= ingredient.name %> -->
   <% end %>
 </p>
 
