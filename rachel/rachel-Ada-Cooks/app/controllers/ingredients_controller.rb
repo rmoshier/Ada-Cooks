@@ -33,7 +33,7 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    @ingredient = RecipeIngredient.find(params[:id])
+    @ingredient = RecipeIngredient.where(ingredient_id: params[:id]).first
     @ingredient.destroy
 
     redirect_to ingredients_path
