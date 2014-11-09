@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe RecipesController do
+describe IngredientsController do
   describe "GET #index" do
     it "renders the index template" do
       get :index
